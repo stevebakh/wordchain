@@ -48,12 +48,12 @@ object WordChain extends WordChainSolver {
         if (candidateWord.value == to)
           walkWordParents(candidateWord).reverse
         else {
-          // create a new queue adding the children of the current word that have not already
-          // been visited and that do not already exist in the queue to the existing queue.
-          val updatedQueue = (graphish(candidateWord.value) -- visited -- queue.map(_.value).toSet)
+          // To the words in the existing queue, add the immediate descendants of the current
+          // word, excluding those that are already in the queue, or have already been visited.
+          val updatedQueue = headless ++ (graphish(candidateWord.value) -- visited -- queue.map(_.value).toSet)
             .map(child => Word(child, Some(candidateWord)))
 
-          breadthFirstSearch(headless ++ updatedQueue, visited + candidateWord.value)
+          breadthFirstSearch(updatedQueue, visited + candidateWord.value)
         }
       }
     }
