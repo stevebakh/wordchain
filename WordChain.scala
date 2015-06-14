@@ -19,8 +19,7 @@ object WordChain extends WordChainSolver {
   file.close
 
 
-  // a poor man's graph... is it considered cheating to do this up front?
-  // I initially did this work on-demand, but it was a lot less performant.
+  // a poor man's graph... only makes sense to do this up front!
   // Uses Levenshtein distance to reduce the set of related words.
   private val graphish: Map[String, Set[String]] = dictionary.map(word =>
     word -> dictionary.filter(filteredWord =>
