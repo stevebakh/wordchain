@@ -1,7 +1,7 @@
-name := "exercise2"
+name := "wordchain-take2"
 
-scalaVersion := "2.11.6"
+version := "1.0"
 
-scalacOptions ++= Seq("-feature")
+scalaVersion := "2.12.3"
 
-libraryDependencies += "com.rockymadden.stringmetric" %% "stringmetric-core" % "0.27.4"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
