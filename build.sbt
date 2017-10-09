@@ -1,4 +1,4 @@
-name := "wordchain-take2"
+name := "wordchain"
 
 version := "1.0"
 
